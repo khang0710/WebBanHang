@@ -7,6 +7,7 @@
 @{
 }
 @model CartItemViewModel;
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
@@ -24,10 +25,21 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-@foreach (var message in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+@{
+    var successMessage = TempData["SuccessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
+
+}
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success">
+        @successMessage
+    </div>
+}
+@if (!string.IsNullOrEmpty(errorMessage))
 {
     <div class="alert alert-danger">
-        @message.ErrorMessage
+        @errorMessage
     </div>
 }
 <!-- Shoping Cart Section Begin -->

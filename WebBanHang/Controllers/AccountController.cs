@@ -11,7 +11,6 @@ namespace WebBanHang.Controllers
     {
         SnackStoreContext db = new SnackStoreContext();
 
-
         public IActionResult Login(string URL)
         {
             return View(new LoginViewModel { Url = URL});

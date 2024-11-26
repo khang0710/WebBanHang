@@ -7505,14 +7505,6 @@
       "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\banner\\banner-1.jpg",
-      "PackagePath": "staticwebassets\\img\\banner\\banner-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\banner\\banner-2.jpg",
-      "PackagePath": "staticwebassets\\img\\banner\\banner-2.jpg"
-    },
-    {
       "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\blog\\blog-1.jpg",
       "PackagePath": "staticwebassets\\img\\blog\\blog-1.jpg"
     },
@@ -7577,26 +7569,6 @@
       "PackagePath": "staticwebassets\\img\\cart\\cart-3.jpg"
     },
     {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\categories\\cat-1.jpg",
-      "PackagePath": "staticwebassets\\img\\categories\\cat-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\categories\\cat-2.jpg",
-      "PackagePath": "staticwebassets\\img\\categories\\cat-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\categories\\cat-3.jpg",
-      "PackagePath": "staticwebassets\\img\\categories\\cat-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\categories\\cat-4.jpg",
-      "PackagePath": "staticwebassets\\img\\categories\\cat-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\categories\\cat-5.jpg",
-      "PackagePath": "staticwebassets\\img\\categories\\cat-5.jpg"
-    },
-    {
       "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\hero\\banner.jpg",
       "PackagePath": "staticwebassets\\img\\hero\\banner.jpg"
     },
@@ -7623,114 +7595,6 @@
     {
       "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\payment-item.png",
       "PackagePath": "staticwebassets\\img\\payment-item.png"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\product-details-1.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\product-details-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\product-details-2.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\product-details-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\product-details-3.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\product-details-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\product-details-4.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\product-details-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\product-details-5.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\product-details-5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\thumb-1.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\thumb-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\thumb-2.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\thumb-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\thumb-3.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\thumb-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\details\\thumb-4.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\details\\thumb-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-1.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-2.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-3.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-4.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-5.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\discount\\pd-6.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\discount\\pd-6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-1.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-10.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-10.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-11.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-11.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-12.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-12.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-2.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-3.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-4.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-5.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-5.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-6.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-6.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-7.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-8.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-8.jpg"
-    },
-    {
-      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\product\\product-9.jpg",
-      "PackagePath": "staticwebassets\\img\\product\\product-9.jpg"
     },
     {
       "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\upload\\4973288512304.jpg",

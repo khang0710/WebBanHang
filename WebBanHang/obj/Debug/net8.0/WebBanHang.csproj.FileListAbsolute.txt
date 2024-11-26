@@ -261,3 +261,4 @@ C:\Users\MSI VN\source\repos\WebBanHang\WebBanHang\bin\Debug\net8.0\Microsoft.As
 C:\Users\MSI VN\source\repos\WebBanHang\WebBanHang\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\MSI VN\source\repos\WebBanHang\WebBanHang\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\MSI VN\source\repos\WebBanHang\WebBanHang\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\MSI VN\source\repos\WebBanHang\WebBanHang\obj\Debug\net8.0\WebBanHang.sourcelink.json

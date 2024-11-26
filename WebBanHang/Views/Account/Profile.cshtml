@@ -7,6 +7,23 @@
 }
 @model CartItemViewModel;
 @{
+    var successMessage = TempData["SuccessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
+
+}
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success">
+        @successMessage
+    </div>
+}
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+@{
     var user = Context.Session.GetJson<User>("User") ?? new WebBanHang.Models.User();
 }
 <body>

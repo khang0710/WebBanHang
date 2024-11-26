@@ -176,7 +176,7 @@ namespace WebBanHang.Controllers
             // Kiểm tra nếu giỏ hàng rỗng hoặc không tồn tại
             if (cart == null || cart.Count <= 0)
             {
-                ModelState.AddModelError("Empty", "Giỏ hàng của bạn đang trống! Vui lòng thêm sản phẩm vào giỏ hàng");
+                TempData["ErrorMessage"] = "Giỏ hàng trống!";
                 return RedirectToAction("Index");
             }
 
@@ -253,6 +253,7 @@ namespace WebBanHang.Controllers
                 }
                 db.SaveChanges();
                 HttpContext.Session.Remove("Cart");
+                TempData["SuccessMessage"] = "Đặt hàng thành công!";
                 return RedirectToAction("Profile", "Account");
             }
             return Redirect(Request.Headers["Referer"].ToString());
