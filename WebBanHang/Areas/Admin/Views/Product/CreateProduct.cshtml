@@ -1,0 +1,102 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h1>Thêm Sản Phẩm</h1>
+
+<div>
+    <a asp-action="Index"> < Quay lại</a>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h4>Thông tin sản phẩm</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="POST" asp-action="CreateProduct" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Tên sản phẩm:</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label">Mô tả:</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label">Giá</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StockQuantity" class="control-label">Số lượng</label>
+                        <input asp-for="StockQuantity" class="form-control" type="text" />
+                        <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label">Danh mục</label>
+                        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái hiển thị</label><br />
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Status" value="true" id="statusTrue" checked/>
+                            <label class="form-check-label" for="statusTrue">Hiện</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Status" value="false" id="statusFalse" />
+                            <label class="form-check-label" for="statusFalse">Ẩn</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label">Hình ảnh</label>
+                        <input asp-for="ImageUpLoad" class="form-control" id="fileInput"/>
+                        <span asp-validation-for="ImageUpLoad" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 500px; margin-top: 10px;" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="submit" value="Thêm sản phẩm" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const imagePreview = document.getElementById('imagePreview');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block'; // Hiển thị hình ảnh
+                };
+                reader.readAsDataURL(file); // Đọc dữ liệu hình ảnh
+            } else {
+                imagePreview.src = '#'; // Đặt lại src nếu không có file
+                imagePreview.style.display = 'none'; // Ẩn hình ảnh
+            }
+        });
+    </script>
+
+}

@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.PagedList<WebBanHang.Models.Product>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Sản Phẩm</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Danh Sách Sản Phẩm
+                <a href="/admin/Product/CreateProduct" class="btn btn-success btn-icon-split float-right">
+                <span class="icon text-white-50">
+                        <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Thêm Sản Phẩm</span>
+            </a></h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Danh mục</th>
+                            <th>Ngày tạo</th>
+                            <th>SL</th>
+                            <th>Giá</th>
+                            <th>Status</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        @{int i = 0;}
+                        @foreach (var item in Model)
+                        {
+                            
+                            {
+                                i++;
+                                <tr>
+                                    <td>@i</td>
+                            <td><img style="width:100px; height:100px" src="/img/upload/@item.Image" alt=""></td>
+                            <td>@item.Name</td>
+                            <td>@item.Category.CategoryName</td>
+                                <td>
+                                    @(item.CreatedAt.HasValue ? item.CreatedAt.Value.ToString("HH:mm") : "")<br />
+                                    @(item.CreatedAt.HasValue ? item.CreatedAt.Value.ToString("dd/MM/yyyy") : "")
+                                </td>
+
+                            <td>@item.StockQuantity</td>
+                            <td>@item.Price.ToString("N0")</td>
+                            <td>@item.Status</td>
+                            <td>
+                                 <div class="d-flex justify-content-start">
+
+                                <!-- <button type="button" class="btn btn-secondary">Xem chi tiết</button>
+                                <br/><br/>
+                                <div class="btn-group" role="group">
+                                
+                                <a href="your-edit-link" class="btn btn-primary">
+                                    <i class="fas fa-edit"></i> Sửa
+                                </a>
+                                </div>
+                                
+                                <form action="your-delete-link" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">
+                                        <i class="fas fa-trash-alt"></i> Xóa
+                                    </button>
+                                </form> -->
+                                <a asp-area="admin" asp-controller="Product" asp-action="ChiTietSP" asp-route-id="@item.ProductId" class="m-1">
+                                    <button type="submit" class="btn btn-info btn-circle">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </a>
+                                <a asp-area="admin" asp-controller="Product" asp-action="EditProduct" asp-route-id="@item.ProductId" class="m-1">
+                                    <button class="btn btn-warning btn-circle">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </a>
+                                           
+                                <form asp-area="admin" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.ProductId" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');" class="m-1">
+                                    <button type="submit" class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form> 
+                                </div>
+                            </td>
+                        </tr>}
+                    }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions()
+            {
+                LiElementClasses = new List<String> { "page-item" },
+                PageClasses = new List<String> { "page-link" }
+            })
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+            
+<!-- End of Main Content -->

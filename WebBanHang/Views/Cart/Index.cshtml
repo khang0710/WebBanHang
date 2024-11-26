@@ -1,0 +1,165 @@
+﻿@using WebBanHang.Models.ViewModels
+@using WebBanHang.Repository
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CartItemViewModel;
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Shopping Cart</h2>
+                    <div class="breadcrumb__option">
+                        <a href="./index.html">Home</a>
+                        <span>Shopping Cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+@foreach (var message in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+    <div class="alert alert-danger">
+        @message.ErrorMessage
+    </div>
+}
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Products</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Items.Count > 0)
+                            {
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <td class="shoping__cart__item">
+                                            <a asp-controller="Shop" asp-action="ChiTietSP" asp-route-id="@item.ProductId">
+                                            <img style="width:120px" src="/img/upload/@item.Image" alt="">
+                                            </a>
+                                            <h5>@item.Name</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            $@item.Price.ToString("N0")
+
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="input-group" style="max-width: 120px; margin: auto;">
+                                                    <a asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ProductId" class="btn" style="width: 40px;">
+                                                        <span>-</span>
+                                                    </a>
+                                                    <input type="text" class="form-control text-center" value="@item.Quantity" style="width: 40px;" readonly>
+                                                    <a asp-controller="Cart" asp-action="Increase" asp-route-id="@item.ProductId" class="btn" style="width: 40px;">
+                                                        <span>+</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            @Model.Items.Where(x => x.ProductId == @item.ProductId).Sum(x => x.Quantity * x.Price).ToString("N0") $
+                                        </td>
+                                        <td class="shoping__cart__item__close">
+                                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId"><span class="icon_close"></span></a>
+                                        </td>
+                                    </tr>
+                                    
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4">
+                                        <h4>Your cart is empty!</h4>
+                                    </td>
+                                </tr>
+                       
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__btns">
+                    <a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                    <a href="#" class="primary-btn cart-btn cart-btn-right">
+                        <span class="icon_loading"></span>
+                        Upadate Cart
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="shoping__continue">
+                    <div class="shoping__discount">
+                        <h5>Discount Codes</h5>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your coupon code">
+                            <button type="submit" class="site-btn">APPLY COUPON</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @{
+                var sum = Model.Items.Sum(item => item.Price * item.Quantity);
+            }
+
+            <div class="col-lg-6">
+                <div class="shoping__checkout">
+                    <h5>Cart Total</h5>
+                    <ul>
+                        <li>Subtotal <span>@sum.ToString("N0") $</span></li>
+                        <li>Total <span>@sum.ToString("N0") $</span></li>
+                    </ul>
+                    @{
+                        var user = Context.Session.GetJson<User>("User") ?? new WebBanHang.Models.User();
+                    }
+                    <a asp-controller="Cart" asp-action="Checkout" asp-route-id="@user.UserId" class="primary-btn">PROCEED TO CHECKOUT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shoping Cart Section End -->
+<style>
+    .btn{
+    background-color: #f5f5f5;
+    color: #5c5c5; 
+    border-color: #f5f5f5;
+    border-radius: 0;
+}
+
+.form-control{
+    background-color: #f5f5f5; 
+    color: #5c5c5; 
+    border-color: #f5f5f5; 
+}
+
+        .form-control[readonly] {
+            background-color: #f5f5f5; /* Màu nền */
+            color: #5c5c5; /* Màu chữ */
+            border-color: #f5f5f5; /* Màu viền */
+            opacity: 1; /* Đảm bảo không có độ mờ */
+            pointer-events: none; /* Không cho phép tương tác */
+        }
+</style>

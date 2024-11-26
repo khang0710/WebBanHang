@@ -1,0 +1,49 @@
+﻿@model WebBanHang.Models.Product
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Chi Tiết Sản Phẩm</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>
+    <div>
+        <a asp-action="Index"> < Quay lại</a>
+    </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="container m-5">
+            <!-- Phần trên: Thông tin chính -->
+            <div class="row">
+                <!-- Hình ảnh bên trái -->
+                <div class="col-md-6 text-center">
+                    <img src="~/img/upload/@Model.Image"
+                            alt="Hình ảnh sản phẩm"
+                            width="300px" />
+                </div>
+                <!-- Thông tin bên phải -->
+                <div class="col-md-6">
+                    <p><strong>Tên sản phẩm:</strong> @Model.Name</p>
+                    <p><strong>ID:</strong> @Model.ProductId</p>
+                    <p><strong>Giá bán:</strong> @Model.Price</p>
+                    <p><strong>Số lượng:</strong> @Model.StockQuantity</p>
+                    <p><strong>Danh mục:</strong> @Model.Category.CategoryName</p>
+                    <p><strong>Ngày tạo:</strong> @Model.CreatedAt</p>
+                    <p><strong>Hiển thị:</strong> @Model.Status</p>
+                </div>
+            </div>
+
+            <!-- Phần dưới: Mô tả sản phẩm -->
+            <div class="mt-5">
+                <h3 class="mb-3">Mô tả sản phẩm</h3>
+                <p class="text-justify">
+                    @Model.Description
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

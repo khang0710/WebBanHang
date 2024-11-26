@@ -1,0 +1,21 @@
+﻿.form-range::-webkit-slider-thumb {
+    background: #7fad39;
+}
+
+.form-range::-moz-range-thumb {
+    background: #7fad39;
+}
+
+.form-range::-ms-thumb {
+    background: #7fad39;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #7fad39;
+    border-color: #7fad39;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}

@@ -1,0 +1,88 @@
+﻿@using WebBanHang.Repository
+@using WebBanHang.Models.ViewModels
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CartItemViewModel;
+@{
+    var user = Context.Session.GetJson<User>("User") ?? new WebBanHang.Models.User();
+}
+<body>
+    <div class="container mt-5">
+        <!-- Thông tin tài khoản -->
+        <div class="mb-4">
+                <h4>Thông tin tài khoản</h4><br />
+                <p>Xin chào! @user.Username</p>
+                <p>Email: @user.Email</p>
+                <a asp-action="Logout" asp-controller="Account" class="btn btn-danger">Đăng xuất</a>
+            </div>
+    </div>
+
+        <!-- Chia làm hai cột: Đơn hàng và Địa chỉ -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Cột Đơn hàng -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Đơn hàng của tôi</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Đơn hàng 1 -->
+                        <table class="checkout__order__table table" width="100%">
+                        <tbody>
+                            @foreach (var item in Model.orderView)
+                            {
+                                <tr class="table-borderless">
+                                    <td>
+                                        <img style="width:100px" src="/img/upload/@item.ProductImage" alt=""> &ensp;
+                                    </td>
+                                    <td>                                       
+                                        <p>Mã Đơn Hàng: @item.OrderId</p>
+                                        @item.ProductName
+                                    </td>
+                                    <td>x @item.ProductQuantity</td>
+                                        <td style="text-align: right">@item.ProductPrice.ToString("N0")</td>
+                                </tr>
+                                <tr class="table-borderless">
+                                    <td style="text-align: left">x @item.TotalQuantity</td>
+                                    <td style="text-align: center"><a>Xem chi tiết</a></td><td></td>
+                                    <td style="text-align: right">@item.Status</td>
+                                </tr>
+                                    <tr style="border-bottom: 1px solid #ccc;">
+                                    <td style="text-align: left">Tổng cộng</td><td></td><td></td>
+                                    <td style="text-align: right">@item.TotalPrice.ToString("N0")$</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột Địa chỉ -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Thông tin nhận hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            @foreach (var address in Model.Addresses)
+                        {
+                            <li class="list-group-item">
+                                @address.FullName <br />
+                                <strong>Địa chỉ:</strong> @address.Address1 @address.City<br />
+                                <strong>SĐT:</strong> @address.PhoneNumber
+                            </li>
+                        }
+                        </ul>
+                        <button class="btn btn-primary mt-3 w-100">Thêm địa chỉ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

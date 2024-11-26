@@ -1,0 +1,211 @@
+﻿@using WebBanHang.Models.ViewModels
+@{
+    ViewData["Title"] = "Order List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<WebBanHang.Models.ViewModels.OrderViewModel>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Đơn Hàng</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="container mt-5">
+            <!-- Tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Chờ xác nhận</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Đang xử lý</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab3-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">Đang vận chuyển</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab4-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false">Đã nhận hàng</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab5-tab" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab" aria-controls="tab5" aria-selected="false">Đã hủy</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="myTabContent">
+                <!-- Tab 1 -->
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {   if (item.Status == "Pending")
+                                {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Created</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="CapNhatDonHang" asp-route-id="@item.OrderId" class="btn btn-primary">
+                                                <i class="fas fa-edit"></i> Chi Tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab 2 -->
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {   if (item.Status == "Processing")
+                                {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Created</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="CapNhatDonHang" asp-route-id="@item.OrderId" class="btn btn-primary">
+                                                <i class="fas fa-edit"></i> Chi Tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab 3 -->
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {   if (item.Status == "Shipping")
+                                {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Created</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="CapNhatDonHang" asp-route-id="@item.OrderId" class="btn btn-primary">
+                                                <i class="fas fa-edit"></i> Chi Tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab 4 -->
+                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {   if (item.Status == "Delivered")
+                                {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Created</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="CapNhatDonHang" asp-route-id="@item.OrderId" class="btn btn-primary">
+                                                <i class="fas fa-edit"></i> Chi Tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab 5 -->
+                <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab5-tab">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Mã ĐH</th>
+                                <th>Ngày tạo</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {   if (item.Status == "Cancelled")
+                                {
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Created</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                            <a asp-area="Admin" asp-controller="Order" asp-action="CapNhatDonHang" asp-route-id="@item.OrderId" class="btn btn-primary">
+                                                <i class="fas fa-edit"></i> Chi Tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<!-- End of Main Content -->
