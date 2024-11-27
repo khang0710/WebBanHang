@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2B423ADC-CB30-4B5B-9EFD-A765F602EB09}|WebBanHang\\WebBanHang.csproj|c:\\users\\msi vn\\source\\repos\\webbanhang\\webbanhang\\models\\snackstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B423ADC-CB30-4B5B-9EFD-A765F602EB09}|WebBanHang\\WebBanHang.csproj|solutionrelative:webbanhang\\models\\snackstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2B423ADC-CB30-4B5B-9EFD-A765F602EB09}|WebBanHang\\WebBanHang.csproj|c:\\users\\msi vn\\source\\repos\\webbanhang\\webbanhang\\areas\\admin\\views\\product\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2B423ADC-CB30-4B5B-9EFD-A765F602EB09}|WebBanHang\\WebBanHang.csproj|solutionrelative:webbanhang\\areas\\admin\\views\\product\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -90,6 +94,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SnackStoreContext.cs",
+              "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Models\\SnackStoreContext.cs",
+              "RelativeDocumentMoniker": "WebBanHang\\Models\\SnackStoreContext.cs",
+              "ToolTip": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Models\\SnackStoreContext.cs",
+              "RelativeToolTip": "WebBanHang\\Models\\SnackStoreContext.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAUwJYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T09:06:54.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CreateProduct.cshtml",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Areas\\Admin\\Views\\Product\\CreateProduct.cshtml",
               "RelativeDocumentMoniker": "WebBanHang\\Areas\\Admin\\Views\\Product\\CreateProduct.cshtml",
@@ -97,12 +114,11 @@
               "RelativeToolTip": "WebBanHang\\Areas\\Admin\\Views\\Product\\CreateProduct.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T09:01:52.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T09:01:52.619Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Views\\Account\\Profile.cshtml",
               "RelativeDocumentMoniker": "WebBanHang\\Views\\Account\\Profile.cshtml",
@@ -110,12 +126,11 @@
               "RelativeToolTip": "WebBanHang\\Views\\Account\\Profile.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T08:52:42.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T08:52:42.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Views\\Cart\\Index.cshtml",
               "RelativeDocumentMoniker": "WebBanHang\\Views\\Cart\\Index.cshtml",
@@ -123,12 +138,11 @@
               "RelativeToolTip": "WebBanHang\\Views\\Cart\\Index.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T08:47:23.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T08:47:23.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChiTietSP.cshtml",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Areas\\Admin\\Views\\Product\\ChiTietSP.cshtml",
               "RelativeDocumentMoniker": "WebBanHang\\Areas\\Admin\\Views\\Product\\ChiTietSP.cshtml",
@@ -136,12 +150,11 @@
               "RelativeToolTip": "WebBanHang\\Areas\\Admin\\Views\\Product\\ChiTietSP.cshtml",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T06:39:58.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T06:39:58.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "WebBanHang\\Controllers\\CartController.cs",
@@ -149,12 +162,11 @@
               "RelativeToolTip": "WebBanHang\\Controllers\\CartController.cs",
               "ViewState": "AgIAAKAAAAAAAAAAAAAwwLIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:46:41.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T08:46:41.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebBanHang\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
@@ -162,12 +174,11 @@
               "RelativeToolTip": "WebBanHang\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-26T08:37:17.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T08:37:17.335Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\Areas\\Admin\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "WebBanHang\\Areas\\Admin\\Controllers\\ProductController.cs",
@@ -179,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "dbo.Products.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SnackStore/True/SqlTable/dbo.Products.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/SnackStore/True/SqlTable/dbo.Products.sql",

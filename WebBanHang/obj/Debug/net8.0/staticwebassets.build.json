@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jtjcII7rK0E8jbsgSLXZHfwQGjvcW1kuMDzz+A77f1I=",
+  "Hash": "TSoYC5IBCQ273IYGpV1aGZamE0OglAREbbernLjQ/DI=",
   "Source": "WebBanHang",
   "BasePath": "_content/WebBanHang",
   "Mode": "Default",
@@ -36210,6 +36210,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\upload\\DITJE8690.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\upload\\EFXBE1841.JPG",
+      "SourceId": "WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\",
+      "BasePath": "_content/WebBanHang",
+      "RelativePath": "img/upload/EFXBE1841.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\upload\\EFXBE1841.JPG"
     },
     {
       "Identity": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\upload\\f37519d8-6c06-4817-a0cc-245bd0c9ae4e.webp",
