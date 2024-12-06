@@ -32,9 +32,9 @@ public partial class Product
 
     public virtual Category? Category { get; set; }
 
-    public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
+    //public virtual ICollection<Inventory> Inventories { get; set; } = new List<Inventory>();
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
-    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+//    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

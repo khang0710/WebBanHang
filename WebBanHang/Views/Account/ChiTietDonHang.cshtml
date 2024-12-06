@@ -1,22 +1,11 @@
 ﻿@using WebBanHang.Models.ViewModels
 @{
     ViewData["Title"] = "CapNhatDonHang";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model WebBanHang.Models.ViewModels.OrderDetailsViewModel
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Chi Tiết Đơn Hàng</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>
-    <div>
-        <a asp-action="Index"> < Quay lại</a>
-    </div>
     @{
         var o = Model.order;
         var u = Model.userName;
@@ -35,41 +24,8 @@
                         <p><strong>Ngày tạo:</strong> @o.OrderDate</p>
                         <p><strong>Trạng thái:</strong> @o.Status</p>
                         <p><strong>Thanh toán:</strong> @o.Payment</p>
+
                     </div>
-
-                    @{
-                        // Danh sách trạng thái đơn hàng
-                        var statuses = new List<string> { "Pending", "Processing", "Shipping", "Delivered", "Cancelled" };
-                        // Trạng thái hiện tại của đơn hàng (lấy từ Model)
-                        string currentStatus = o.Status;
-                    }
-
-                    <form method="get" asp-area="Admin" asp-action="UpdateStatus" asp-controller="Order">
-                        <div class="form-group card p-3">
-                            <label for="orderStatus">Trạng thái đơn hàng:</label>
-                            <select id="orderStatus" name="orderStatus" class="form-control">
-                                @foreach (var status in statuses)
-                                {
-                                    if (status == currentStatus)
-                                    {
-                                        <option value="@status" selected="selected" disabled="disabled">
-                                            @status
-                                        </option>
-                                    }
-                                    else
-                                    {
-                                        <option value="@status">@status</option>
-                                    }
-                                }
-                            </select> <br />
-                            <button type="submit" class="btn btn-primary btn-block">Update</button>
-                        </div>
-
-                        <!-- Truyền OrderId để xác định đơn hàng -->
-                        <input type="hidden" name="orderId" value="@o.OrderId" />
-
-                    </form>
-
                 </div>
 
                 <!-- Cột 2: Thông tin nhận hàng -->
@@ -114,14 +70,17 @@
                                     <td>@String.Format("{0:0,0} VNĐ", item.price * item.quantity)</td>
                                 </tr>
                             }
-                        <td style="text-align: left">Tổng cộng</td><td></td><td></td>
+                        <td style="text-align: left">Tổng cộng</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>@String.Format("{0:0,0} VNĐ", o.TotalAmount)</td>
                         }
                         else
                         {
-                            <tr>
-                                <td colspan="5" class="text-center text-danger">Không có sản phẩm nào trong đơn hàng</td>
-                            </tr>
+                        <tr>
+                            <td colspan="5" class="text-center text-danger">Không có sản phẩm nào trong đơn hàng</td>
+                        </tr>
                         }
                     </tbody>
                 </table>

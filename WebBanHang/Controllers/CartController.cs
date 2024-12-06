@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebBanHang.Models;
 using WebBanHang.Models.ViewModels;
+using WebBanHang.Models.VNPay;
 using WebBanHang.Repository;
+using WebBanHang.Services;
 
 namespace WebBanHang.Controllers
 {
@@ -11,10 +13,12 @@ namespace WebBanHang.Controllers
     {
         private readonly SnackStoreContext _context;
         SnackStoreContext db = new SnackStoreContext();
+        private readonly IVnPayService _vnPayService;
 
-        public CartController(SnackStoreContext context)
+        public CartController(SnackStoreContext context, IVnPayService vnPayService)
         {
             _context = context;
+            _vnPayService = vnPayService;
         }
 
         public IActionResult Index()
@@ -217,9 +221,11 @@ namespace WebBanHang.Controllers
         [HttpPost]
         public IActionResult CreateOrder(CartItemViewModel model)
         {
+            
             if (model.NewOrder != null)
             {
                 Order order = model.NewOrder;
+                order.Payment = "Thanh toán khi nhận hàng";
 
                 db.Orders.Add(order);
                 db.SaveChanges();

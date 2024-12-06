@@ -42,6 +42,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                    Select(od => od.Quantity)
                    .FirstOrDefault(),
                Status = o.Status,
+               Payment = o.Payment,
                Created = o.OrderDate,
                CustomerName = o.Address.User.Username
            })

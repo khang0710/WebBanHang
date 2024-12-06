@@ -1,23 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebBanHang.Models;
 using WebBanHang.Repository;
+using WebBanHang.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Add database config
 var connectionString = builder.Configuration.GetConnectionString("SnackStoreContext");
 builder.Services.AddDbContext<SnackStoreContext>(x => x.UseSqlServer(connectionString));
 
+//Add repository config
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+//Add session config
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20);
     options.Cookie.IsEssential = true;
 });
+
+//Connect VNPay API
+builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 
 var app = builder.Build();

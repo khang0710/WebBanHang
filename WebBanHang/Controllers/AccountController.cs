@@ -103,6 +103,7 @@ namespace WebBanHang.Controllers
                     Select(od => od.Quantity)
                     .FirstOrDefault(),
                 Status = o.Status,
+                Payment = o.Payment,
             })
             .ToList();
 
@@ -117,6 +118,54 @@ namespace WebBanHang.Controllers
                 orderView = orders
 
             };
+            return View(model);
+        }
+
+        public IActionResult ChiTietDonHang(string id)
+        {
+            var user = HttpContext.Session.GetJson<User>("User");
+
+            // Kiểm tra nếu user null hoặc không có id
+            if (user == null || user.UserId <= 0)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Lấy thông tin đơn hàng
+            var or = db.Orders.FirstOrDefault(o => o.OrderId == id);
+            if (or == null) return NotFound("Order not found."); // Kiểm tra null
+
+            // Lấy thông tin địa chỉ
+            var add = db.Addresses.FirstOrDefault(a => a.AddressId == or.AddressId);
+            if (add == null) return NotFound("Address not found."); // Kiểm tra null
+
+            // Lấy tên người dùng
+            var usn = db.Users
+                .Where(u => u.UserId == add.UserId) // Lọc theo UserId từ Address
+                .Select(u => u.Username)           // Lấy Username
+                .FirstOrDefault() ?? "Unknown User"; // Giá trị mặc định nếu null
+
+            // Lấy danh sách sản phẩm
+            var detailsPro = db.OrderDetails
+                .Where(d => d.OrderId == id)
+                .Select(item => new DetailsProduct
+                {
+                    image = item.Product.Image ?? "default-image.jpg", // Giá trị mặc định
+                    name = item.Product.Name ?? "Unknown Product",
+                    price = item.Product.Price,                       // Đảm bảo không null
+                    quantity = item.Quantity
+                })
+                .ToList();
+
+            // Tạo ViewModel
+            var model = new OrderDetailsViewModel
+            {
+                order = or,
+                address = add,
+                detailsProducts = detailsPro,
+                userName = usn
+            };
+
             return View(model);
         }
 

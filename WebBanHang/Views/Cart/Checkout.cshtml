@@ -1,4 +1,6 @@
 ﻿@using WebBanHang.Models.ViewModels
+@using WebBanHang.Repository
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -134,7 +136,7 @@
                             </tbody>
                         </table>
                         @{
-                            var sum = Model.Items.Sum(item => item.Price * item.Quantity);
+                            double sum = (double)Model.Items.Sum(item => item.Price * item.Quantity);
                         }
                         <div class="checkout__order__subtotal">
                             Subtotal <span>@sum.ToString("N0")$</span>
@@ -161,13 +163,37 @@
                                 <span class="checkmark"></span>
                             </label>
                         </div>-->
-                        <!-- Form chứa input hidden -->
+                        @{
+                            var user = Context.Session.GetJson<User>("User") ?? new WebBanHang.Models.User();
+                        }
+                
+
+                        <!-- Form chứa input hidden Thanh Toán Khi Nhận Hàng -->
                         <form asp-controller="Cart" asp-action="CreateOrder" method="post" enctype='multipart/form-data' id="orderForm">
-                            <input type="hidden" id="orderID" asp-for="NewOrder.OrderId" value="" /><br />
+                            <input type="hidden" id="orderID" asp-for="NewOrder.OrderId" value=""/><br />
                             <input type="hidden" id="selectedAddressId" asp-for="NewOrder.AddressId" value="" /><br />
                             <input type="hidden" asp-for="NewOrder.TotalAmount" value="@sum" /><br />
                             <input type="hidden" asp-for="NewOrder.Status" value="Pending" /><br />
                             <button type="submit" class="site-btn">PLACE ORDER</button>
+                        </form> 
+
+                        <!--Thanh toán qua VNPay-->
+                        <form asp-controller="Payment" asp-action="CreatePaymentUrlVnpay" method="POST" enctype='multipart/form-data'>
+                            <input type="hidden" id="orderID1" asp-for="NewOrder.OrderId" value="" />
+                            <input type="hidden" id="selectedAddressId1" asp-for="NewOrder.AddressId" value="" />
+                            <input type="hidden" asp-for="NewOrder.TotalAmount" value="@sum" />
+                            <input type="hidden" asp-for="NewOrder.Status" value="Pending" />
+
+                            <input type="hidden" name="Name" value="@user.Username" />
+                            <input type="hidden" name="Amount" value="@sum" />
+                            <input type="hidden" name="OrderDescription" value="Thanh toán qua VNPay tại SnackStore" />
+                            <input type="hidden" name="OrderType" value="other" />
+
+                            <br />
+                            <button type="submit" class="custom-button">
+                                <img src="/img/cart/vnpay.jpg" alt="icon" class="button-icon" />
+                                PAY WITH VNPAY
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -199,6 +225,30 @@
             background-color: #ccc;
             color: white; /* Thay đổi màu chữ cho dễ nhìn */
         }
+
+    .custom-button {
+        background-color: white;
+        color: SteelBlue;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight:bold;
+        display: flex;
+        align-items: center;
+        gap: 100px; /* Khoảng cách giữa hình ảnh và chữ */
+        cursor: pointer;
+    }
+
+        .custom-button:hover {
+            background-color: #f0f0f0; /* Màu nền khi hover */
+        }
+
+    .button-icon {
+        width: 40px; /* Kích thước hình ảnh */
+        height: 40px;
+        object-fit: contain; /* Giữ tỷ lệ hình ảnh */
+    }
+
 </style>
 <script>
     document.getElementById('toggleButton').addEventListener('click', function () {
@@ -212,10 +262,12 @@
 
     const dropdownItems = document.querySelectorAll(".dropdown-item");
     const addressInput = document.getElementById("selectedAddressId");
+    const addressInput1 = document.getElementById("selectedAddressId1");
 
     if (dropdownItems.length > 0) {
     dropdownItems[0].classList.add("active");
     addressInput.value = dropdownItems[0].dataset.id;
+    addressInput1.value = dropdownItems[0].dataset.id;
 }
 
     dropdownItems.forEach((item) => {
@@ -229,8 +281,9 @@
             // Gán giá trị ID vào input hidden
             const selectedId = this.dataset.id;
             addressInput.value = selectedId;
+            addressInput1.value = selectedId;
 
-            console.log("Đã chọn địa chỉ với ID:", selectedId);
+            //console.log("Đã chọn địa chỉ với ID:", selectedId);
         });
     });
 
@@ -248,7 +301,8 @@
     window.onload = function () {
         const orderID = generateOrderID(14); // Tạo mã đơn hàng 14 ký tự
         document.getElementById('orderID').value = orderID; // Gán vào input hidden
-        console.log("Order ID: " + orderID); // In mã đơn hàng ra console (tuỳ chọn)
+        document.getElementById('orderID1').value = orderID; // Gán vào input hidden
+        //console.log("Order ID: " + orderID); // In mã đơn hàng ra console (tuỳ chọn)
     };
 </script>
 

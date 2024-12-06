@@ -93,11 +93,17 @@ public partial class SnackStoreContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.TotalAmount).HasColumnType("decimal(10, 2)");
+            entity.Property(o => o.Payment)
+                  .HasMaxLength(50)
+                  .IsUnicode(true)
+                  .HasColumnType("nvarchar")
+                  .IsRequired(false); 
 
             entity.HasOne(d => d.Address).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.AddressId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Orders__AddressI__3F466844");
+
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>

@@ -7569,6 +7569,10 @@
       "PackagePath": "staticwebassets\\img\\cart\\cart-3.jpg"
     },
     {
+      "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\cart\\vnpay.jpg",
+      "PackagePath": "staticwebassets\\img\\cart\\vnpay.jpg"
+    },
+    {
       "Id": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\hero\\banner.jpg",
       "PackagePath": "staticwebassets\\img\\hero\\banner.jpg"
     },

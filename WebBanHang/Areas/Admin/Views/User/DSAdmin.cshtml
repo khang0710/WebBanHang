@@ -16,7 +16,9 @@
                                                                    href="https://datatables.net">official DataTables documentation</a>.
     </p>
     <div>
-        <a asp-action="Index"> < Quay lại</a>
+        <a asp-action="DSAdmin"> < Quay lại</a>
+        <p> </p>
+
     </div>
     <div class="col-4">
         <a href="/Admin/User/CreateAdmin" class="btn btn-success">
@@ -79,14 +81,13 @@
                                 <th>Tên</th>
                                 <th>Ngày tạo</th>
                                 <th>Email</th>
-                                <th>Trạng thái</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                if (item.Role == "Customer")
+                                if (item.Role == "Staff")
                                 {
                                     <tr>
                                         <td>@item.UserId</td>

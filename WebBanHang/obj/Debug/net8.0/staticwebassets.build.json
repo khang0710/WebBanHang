@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TSoYC5IBCQ273IYGpV1aGZamE0OglAREbbernLjQ/DI=",
+  "Hash": "4Eanr385sJ4nPz+gyDmZTK6hJBiSJIjQoOUS5ntHiYc=",
   "Source": "WebBanHang",
   "BasePath": "_content/WebBanHang",
   "Mode": "Default",
@@ -35982,6 +35982,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\cart\\cart-3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\cart\\vnpay.jpg",
+      "SourceId": "WebBanHang",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\",
+      "BasePath": "_content/WebBanHang",
+      "RelativePath": "img/cart/vnpay.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\cart\\vnpay.jpg"
     },
     {
       "Identity": "C:\\Users\\MSI VN\\source\\repos\\WebBanHang\\WebBanHang\\wwwroot\\img\\hero\\banner.jpg",

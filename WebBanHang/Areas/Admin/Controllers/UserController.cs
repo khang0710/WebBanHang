@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WebBanHang.Models;
 using WebBanHang.Repository;
 
@@ -27,7 +28,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home", new { area = "Admin" });
             }
-            var list = db.Users.Where(u => u.Role == "Staff" ||  u.Role == "Admin").ToList();   
+            var list = db.Users.Where(u => u.Role == "Staff" || u.Role == "Admin").ToList();
             return View(list);
         }
 
@@ -79,6 +80,42 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             var list = db.Users.Where(u => u.Role == "Customer").ToList();
             return View(list);
+        }
+
+        [Route("ChiTietTaiKhoan/{id}")]
+        public IActionResult ChiTietTaiKhoan(int id)
+        {
+            var user = HttpContext.Session.GetJson<User>("Admin");
+
+            // Kiểm tra nếu user null hoặc không có id
+            if (user == null || user.UserId <= 0)
+            {
+                return RedirectToAction("Login", "Home", new { area = "Admin" });
+            }
+
+            var u = db.Users.FirstOrDefault(u => u.UserId == id);
+            return View(u);
+        }
+
+        // Xử lý xóa u
+        [HttpPost]
+        [Route("DeleteUser/{id}")] // Route cho action Delete
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            // Tìm sản phẩm theo id
+            var user = await db.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound(); // Nếu không tìm thấy sản phẩm, trả về NotFound
+            }
+
+            // Xóa sản phẩm
+            db.Users.Remove(user);
+            await db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+
+            return RedirectToAction("Index", "Home", new { area = "Admin" });
         }
     }
 }

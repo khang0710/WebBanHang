@@ -65,10 +65,17 @@
                                 </tr>
                                 <tr class="table-borderless">
                                     <td style="text-align: left">x @item.TotalQuantity</td>
-                                    <td style="text-align: center"><a>Xem chi tiết</a></td><td></td>
+                                    <td style="text-align: center"><a asp-controller="Account" asp-action="ChiTietDonHang" asp-route-id="@item.OrderId">Xem chi tiết</a></td>
+                                    <td></td>
                                     <td style="text-align: right">@item.Status</td>
                                 </tr>
-                                    <tr style="border-bottom: 1px solid #ccc;">
+                                <tr class="table-borderless">
+                                    <td style="text-align: left">Phương thức thanh toán</td>
+                                    <td style="text-align: center"></td>
+                                    <td></td>
+                                    <td style="text-align: right">@item.Payment</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ccc;">
                                     <td style="text-align: left">Tổng cộng</td><td></td><td></td>
                                     <td style="text-align: right">@item.TotalPrice.ToString("N0")$</td>
                                 </tr>
